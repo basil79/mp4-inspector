@@ -209,13 +209,13 @@
     }
 
     for(var i in elements) {
-      var el = elements[i];
-      var attrs = el.attributes; // get all attributes for checking if att exists before getAttribute
+      var element = elements[i];
+      var attrs = element.attributes; // get all attributes for checking if attribute exists before getAttribute
       items.push({
-        id: attrs['xml:id'] ? el.getAttribute('xml:id') : null,
-        imagetype: attrs['imagetype'] ? el.getAttribute('imagetype').toLowerCase() : null,
-        encoding: attrs['encoding'] ? el.getAttribute('encoding').toLowerCase() : null,
-        data: el.textContent ? el.textContent.trim() : null
+        id: attrs['xml:id'] ? element.getAttribute('xml:id') : null,
+        imagetype: attrs['imagetype'] ? element.getAttribute('imagetype').toLowerCase() : null,
+        encoding: attrs['encoding'] ? element.getAttribute('encoding').toLowerCase() : null,
+        data: element.textContent ? element.textContent.trim() : null
       });
     }
 
@@ -229,10 +229,10 @@
     });
   }
 
-  // toArray for instead of Array.from - ES5
+  // toArray instead of Array.from - ES5
   function toArray(obj) {
     var array = [];
-    // iterate backwards ensuring that length is an UInt32
+    // Iterate backwards ensuring that length is an UInt32
     for(var i = obj.length >>> 0; i--;) {
       array[i] = obj[i];
     }
